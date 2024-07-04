@@ -16,25 +16,25 @@ class TaskManager:
 
     def marquer_tâche_comme_complétée(self, index):
         si 0 <= index < len(self.tâches):
-            self.tâches[index].marquer_comme_complétée()
+        self.tâches[index].marquer_comme_complétée()
 
     def supprimer_tâche(self, index):
         si 0 <= index < len(self.tâches):
-            del self.tâches[index]
+        del self.tâches[index]
 
     def sauvegarder_dans_csv(self, fichier):
         avec open(fichier, 'w', newline='') comme csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(['Titre', 'Description', 'Date limite', 'Priorité', 'Completée'])
-            pour tâche dans self.tâches:
-                writer.writerow([tâche.titre, tâche.description, tâche.date_limite, tâche.priorité, tâche.completée])
+        writer = csv.writer(csvfile)
+        writer.writerow(['Titre', 'Description', 'Date limite', 'Priorité', 'Completée'])
+        pour tâche dans self.tâches:
+        writer.writerow([tâche.titre, tâche.description, tâche.date_limite, tâche.priorité, tâche.completée])
 
     def charger_de_csv(self, fichier):
         avec open(fichier, 'r') comme csvfile:
-            reader = csv.reader(csvfile)
-            next(reader)  # skip header
-            pour row dans reader:
-                titre, description, date_limite, priorité, completée = row
-                tâche = Task(titre, description, date_limite, priorité)
-                tâche.completée = completée == 'True'
-                self.tâches.append(tâche)
+        reader = csv.reader(csvfile)
+        next(reader)  # skip header
+        pour row dans reader:
+        titre, description, date_limite, priorité, completée = row
+        tâche = Task(titre, description, date_limite, priorité)
+        tâche.completée = completée == 'True'
+        self.tâches.append(tâche)
