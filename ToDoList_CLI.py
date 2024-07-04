@@ -1,3 +1,8 @@
+# ToDoList_CLI.py
+
+from class_Task import Task
+from class_TaskManager import TaskManager
+
 def afficher_menu():
     print("1. Ajouter une tâche")
     print("2. Lister les tâches")
@@ -13,7 +18,9 @@ def main():
         if choix == '1':
             titre = input("Titre de la tâche : ")
             description = input("Description de la tâche : ")
-            gestionnaire.ajouter_tâche(titre, description)
+            date_limite = input("Date limite (YYYY-MM-DD) : ")
+            priorité = input("Priorité (haute, moyenne, basse) : ")
+            gestionnaire.ajouter_tâche(titre, description, date_limite, priorité)
         elif choix == '2':
             gestionnaire.lister_tâches()
         elif choix == '3':
