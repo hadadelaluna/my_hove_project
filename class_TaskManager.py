@@ -11,8 +11,8 @@ class TaskManager:
     def lister_tâches(self):
         for index, tâche in enumerate(self.tâches):
             status = "Completée" 
-            if tâche.completée:
-            else status = "Non completée"
+            if not tâche.completée:
+                status = "Non completée"
             print(f"{index + 1}. {tâche.titre} - {tâche.description} - Date limite: {tâche.date_limite} - Priorité: {tâche.priorité} ({status})")
 
     def marquer_tâche_comme_complétée(self, index):
@@ -24,7 +24,7 @@ class TaskManager:
             del self.tâches[index]
 
     def sauvegarder_dans_csv(self, fichier):
-        with open(fichier, 'w', newline='') self.assert_(boolean expression, 'message') csvfile:
+        with open(fichier, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
         writer.writerow(['Titre', 'Description', 'Date limite', 'Priorité', 'Completée'])
         for tâche in self.tâches:
