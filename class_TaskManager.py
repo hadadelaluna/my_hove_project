@@ -4,7 +4,6 @@ from class_Task import Task
 class TaskManager:
     def __init__(self):
         self.tâches = []
-
     def ajouter_tâche(self, titre, description, date_limite=None, priorité='moyenne'):
         tâche = Task(titre, description, date_limite, priorité)
         self.tâches.append(tâche)
@@ -12,8 +11,8 @@ class TaskManager:
     def lister_tâches(self):
         for index, tâche in enumerate(self.tâches):
             status = "Completée" 
-            if tâche.completée 
-            else "Non completée"
+            if tâche.completée:
+            else status = "Non completée"
             print(f"{index + 1}. {tâche.titre} - {tâche.description} - Date limite: {tâche.date_limite} - Priorité: {tâche.priorité} ({status})")
 
     def marquer_tâche_comme_complétée(self, index):
